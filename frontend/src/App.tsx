@@ -12,7 +12,7 @@ import {
 
 export default function App() {
   return (
-    <section>
+    <section className="bg-white dark:bg-stone-900 h-screen">
   <Router>
     <EntryProvider>
     <NavBar></NavBar>
@@ -27,6 +27,5 @@ export default function App() {
     </EntryProvider>
     </Router>
     </section>
-    
   );
 }
