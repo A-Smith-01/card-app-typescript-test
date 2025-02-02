@@ -34,24 +34,24 @@ export default function NewEntry() {
         onChange={handleInputChange}
       />
       <div>
-      <p className="dark:text-white text-sm">Created: </p>
-      <input
-        className="p-3 rounded-md dark:bg-stone-900 dark:text-white dark:[color-scheme:dark]"
-        type="date"
-        name="created_at"
-        value={new Date(newEntry.created_at).toISOString().split("T")[0]}
-        onChange={handleInputChange}
-      />
+        <p className="dark:text-white text-sm">Created: </p>
+        <input
+          className="p-3 rounded-md dark:bg-stone-900 dark:text-white dark:[color-scheme:dark]"
+          type="date"
+          name="created_at"
+          value={new Date(newEntry.created_at).toISOString().split("T")[0]}
+          onChange={handleInputChange}
+        />
       </div>
       <div>
-      <p className="dark:text-white text-sm">Scheduled: </p>
-      <input
-        className="p-3 rounded-md dark:bg-stone-900 dark:text-white dark:[color-scheme:dark]"
-        type="date"
-        name="scheduled"
-        value={new Date(newEntry.scheduled).toISOString().split("T")[0]}
-        onChange={handleInputChange}
-      />
+        <p className="dark:text-white text-sm">Scheduled: </p>
+        <input
+          className="p-3 rounded-md dark:bg-stone-900 dark:text-white dark:[color-scheme:dark]"
+          type="date"
+          name="scheduled"
+          value={new Date(newEntry.scheduled).toISOString().split("T")[0]}
+          onChange={handleInputChange}
+        />
       </div>
       <button
         onClick={(e) => {
