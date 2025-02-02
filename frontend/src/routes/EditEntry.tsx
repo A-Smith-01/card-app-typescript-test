@@ -5,7 +5,7 @@ import { EntryContext } from "../utilities/globalContext";
 
 export default function EditEntry() {
   const { id } = useParams();
-  const emptyEntry: Entry = { title: "", description: "", created_at: new Date() };
+  const emptyEntry: Entry = { title: "", description: "", created_at: new Date(), scheduled: new Date()};
 
   const { updateEntry, entries } = useContext(EntryContext) as EntryContextType;
   const [newEntry, setNewEntry] = useState<Entry>(emptyEntry);
@@ -40,6 +40,8 @@ export default function EditEntry() {
         value={newEntry.description}
         onChange={handleInputChange}
       />
+      <div>
+      <p className="dark:text-white text-sm">Created: </p>
       <input
         className="p-3 rounded-md dark:bg-stone-900 dark:text-white dark:[color-scheme:dark]"
         type="date"
@@ -47,6 +49,17 @@ export default function EditEntry() {
         value={new Date(newEntry.created_at).toISOString().split("T")[0]}
         onChange={handleInputChange}
       />
+      </div>
+      <div>
+      <p className="dark:text-white text-sm">Scheduled: </p>
+      <input
+        className="p-3 rounded-md dark:bg-stone-900 dark:text-white dark:[color-scheme:dark]"
+        type="date"
+        name="scheduled"
+        value={new Date(newEntry.scheduled).toISOString().split("T")[0]}
+        onChange={handleInputChange}
+      />
+      </div>
       <button
         onClick={(e) => {
           handleSend(e);

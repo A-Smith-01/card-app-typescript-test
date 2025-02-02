@@ -26,14 +26,14 @@ export default function AllEntries() {
           <div
             id={entry.id}
             key={index}
-            className="bg-gray-300 dark:bg-slate-800 shadow-md shadow-gray-500 m-3 p-4 rounded flex flex-col justify-between"
+            className="bg-gray-300 dark:bg-slate-800 shadow-md shadow-gray-500 dark:shadow-black m-3 p-4 rounded flex flex-col justify-between"
           >
             <h1 className="dark:text-white font-bold text-sm md:text-lg">{entry.title}</h1>
             <p className="dark:text-white text-center text-lg font-light md:mt-2 md:mb-4 mt-1 mb-3">
               {entry.description}
             </p>
             <section className="flex items-center justify-between flex-col md:flex-row pt-2 md:pt-0">
-              <div className="flex justify-center">
+              <div className="flex items-end">
                 <button
                   onClick={() => {
                     deleteEntry(entry.id as string);
@@ -51,9 +51,14 @@ export default function AllEntries() {
                   🖊
                 </button>
               </div>
-              <time className="dark:text-white text-right text-sm md:text-lg">
-                {new Date(entry.created_at.toString()).toLocaleDateString()}
-              </time>
+              <div className="grid grid-cols-1">
+                <time className="dark:text-white text-right text-base ">
+                  Created: {new Date(entry.created_at.toString()).toLocaleDateString()}
+                </time>
+                <time className="dark:text-white text-right text-base ">
+                  Scheduled: {new Date(entry.scheduled.toString()).toLocaleDateString()}
+                </time>
+              </div>
             </section>
           </div>
         );
