@@ -53,6 +53,9 @@ server.put<{ Params: { id: string }; Body: Entry }>("/update/:id", async (req, r
   updatedEntryBody.created_at
     ? (updatedEntryBody.created_at = new Date(req.body.created_at))
     : (updatedEntryBody.created_at = new Date());
+  updatedEntryBody.scheduled
+  ? (updatedEntryBody.scheduled = new Date(req.body.scheduled))
+  : (updatedEntryBody.scheduled = new Date());
   try {
     await Prisma.entry.update({
       data: req.body,
